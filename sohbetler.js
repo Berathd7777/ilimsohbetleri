@@ -7,5 +7,5 @@
 // ================================================================
 
 const sohbetVeriMetni = `
-27.06.2025 Cuma,Erkan Uslu,a
+27.06.2025 Cuma,Erkan Uslu,as
 `;
