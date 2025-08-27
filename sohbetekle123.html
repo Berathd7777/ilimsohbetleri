@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sohbet Ekle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Yeni Sohbet Ekle</h1>
+
+    <div id="messages"></div>
+
+    <form id="sohbetForm">
+      <div class="form-group">
+        <label for="tarih">Tarih:</label>
+        <input type="date" id="tarih" required>
+      </div>
+      <div class="form-group">
+        <label for="konusmaci">Konuşmacı:</label>
+        <input type="text" id="konusmaci" required>
+      </div>
+      <div class="form-group">
+        <label for="konu">Konu:</label>
+        <textarea id="konu" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn">Kaydet</button>
+      <a href="index.html" class="btn btn-danger">⬅ Listeye Dön</a>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("sohbetForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      let tarih = document.getElementById("tarih").value;
+      let konusmaci = document.getElementById("konusmaci").value;
+      let konu = document.getElementById("konu").value;
+
+      try {
+        let res = await fetch("api.php?action=add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ tarih, konusmaci, konu })
+        });
+        let result = await res.json();
+
+        if (result.success) {
+          document.getElementById("messages").innerHTML =
+            "<p style='color:green'>✅ Sohbet eklendi.</p>";
+          document.getElementById("sohbetForm").reset();
+        } else {
+          document.getElementById("messages").innerHTML =
+            "<p style='color:red'>⚠ Ekleme başarısız!</p>";
+        }
+      } catch (err) {
+        document.getElementById("messages").innerHTML =
+          "<p style='color:red'>⚠ Sunucuya ulaşılamadı.</p>";
+      }
+    });
+  </script>
+</body>
+</html>
