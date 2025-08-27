@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sohbet Listesi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📚 İlim Sohbetleri</h1>
+    <div id="sohbetListesi">
+      <div class="loading">Sohbetler yükleniyor...</div>
+    </div>
+
+    <div style="text-align:center; margin-top:20px;">
+      <a href="sohbetekle123.html" class="btn">📝 Yeni Sohbet Ekle</a>
+    </div>
+  </div>
+
+  <script>
+    async function sohbetleriGetir() {
+      try {
+        let res = await fetch("api.php?action=list"); // kendi API yolun
+        let data = await res.json();
+        let list = document.getElementById("sohbetListesi");
+        list.innerHTML = "";
+
+        if (data.length === 0) {
+          list.innerHTML = "<p>Henüz sohbet eklenmemiş.</p>";
+          return;
+        }
+
+        data.forEach(item => {
+          let div = document.createElement("div");
+          div.className = "sohbet";
+          div.innerHTML = `
+            <p><strong>${item.tarih}</strong> – ${item.konusmaci}</p>
+            <p>${item.konu}</p>
+          `;
+          list.appendChild(div);
+        });
+      } catch (err) {
+        document.getElementById("sohbetListesi").innerHTML =
+          "<p>⚠ Sohbetler yüklenemedi.</p>";
+      }
+    }
+
+    sohbetleriGetir();
+  </script>
+</body>
+</html>
