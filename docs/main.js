@@ -1,32 +1,32 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Verinin çekileceği ham GitHub dosyasının URL'si
-    //    Kullanıcı adınızı ve repo adınızı kontrol ettiğinizden emin olun.
+    // Verinin çekileceği ham GitHub dosyasının URL'si
     const veriUrl = 'https://raw.githubusercontent.com/Berathd7777/ilimsohbetleri/main/sohbetler.js';
 
     // Tablonun gövdesini (tbody) seçiyoruz.
     const tbody = document.getElementById('sohbet-listesi');
 
-    // 2. fetch API'si ile URL'den veriyi çekiyoruz.
-    //    { cache: 'no-cache' } ayarı, tarayıcının dosyayı önbelleğe almasını engeller.
-    //    Bu sayede her zaman en güncel veriyi almış oluruz.
+    // fetch API'si ile URL'den veriyi çekiyoruz.
     fetch(veriUrl, { cache: 'no-cache' })
         .then(response => {
-            // Eğer cevap başarılı değilse (örn: 404 Not Found) hata fırlat.
             if (!response.ok) {
                 throw new Error('Veri dosyası yüklenemedi. Ağ durumu: ' + response.status);
             }
-            // Cevabı metin olarak döndür.
             return response.text();
         })
         .then(gelenMetin => {
-            // 3. Gelen metni işleyerek tabloyu oluşturuyoruz (eski kodun aynısı).
-            
-            // sohbetler.js dosyasındaki "const sohbetVeriMetni = `...`;" kısmını temizleyelim.
-            // Sadece `` tırnaklar arasındaki metni almak için bir düzenleme yapalım.
+            // sohbetler.js dosyasındaki "const sohbetVeriMetni = `...`;" kısmını temizliyoruz.
             const temizMetin = gelenMetin.substring(gelenMetin.indexOf('`') + 1, gelenMetin.lastIndexOf('`'));
 
+            // Gelen metni satırlara ayırıyoruz.
             const satirlar = temizMetin.trim().split('\n').filter(satir => satir.trim() !== '');
 
+            // ================================================================
+            //              İŞTE DEĞİŞİKLİK BURADA!
+            //  Satırları içeren diziyi tabloya eklemeden önce tersine çeviriyoruz.
+            // ================================================================
+            satirlar.reverse();
+
+            // Artık tersine çevrilmiş sırayla her bir satır için işlem yapıyoruz.
             satirlar.forEach(satir => {
                 const hucreler = satir.trim().split(',');
 
@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         })
         .catch(error => {
-            // 4. Bir hata olursa kullanıcıyı bilgilendiriyoruz.
             console.error('Veri çekme hatası:', error);
             tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:red;">Sohbet listesi yüklenemedi. Lütfen internet bağlantınızı kontrol edin veya daha sonra tekrar deneyin.</td></tr>`;
         });
