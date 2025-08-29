@@ -25,4 +25,5 @@ const sohbetVeriMetni = `
 19.08.2025 Salı,Erkan Uslu~Mehmet Akyürek,Hz. Yusuf
 22.08.2025 Cuma,Erkan Uslu~Mehmet Akyürek,Hz. Yusuf
 26.08.2025 Salı,Abdurrahim Gümüş~Mehmet Ali Kurşun,Hz. Eyüp
+29.08.2025 Cuma,Erkan Uslu,Hz. Eyüp
 `;
