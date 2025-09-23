@@ -29,4 +29,5 @@ const sohbetVeriMetni = `
 02.09.2025 Salı,Erkan Uslu,Hz. Eyüp
 09.09.2025 Salı,Erkan Uslu,Hz. Zülkifl
 16.09.2025 Salı,Erkan Uslu,Hz. Şuayb
+23.09.2025 Salı,Erkan Uslu,Hz. Musa
 `;
