@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://softaogullaricami.netlify.app/sitemap.xml
