@@ -87,13 +87,13 @@ body {
     padding: 0 20px;
 }
 
-/* Tablonun etrafındaki çerçeveyi kaldırırız. Sadece hafif bir gölge ve arka plan kalır. */
 .table-container-wrapper {
     background-color: #ffffff; /* Tablonun arka planı beyaz */
     border-radius: 8px; /* Köşeleri hafif yuvarlak */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Çok hafif bir gölge, çerçeve değil */
     padding: 20px 0; /* İç boşluk */
     overflow-x: auto; /* Küçük ekranlarda tablonun kaydırılmasını sağlar */
+    /* Not: Yatay kaydırma çubuğu hâlâ bu div'de oluşacak. */
 }
 
 .data-table {
@@ -115,6 +115,13 @@ body {
     text-transform: uppercase;
     font-size: 0.9em;
     letter-spacing: 0.5px;
+    
+    /* ************************************** */
+    /* SABİT (STICKY) BAŞLIK İÇİN EKLENEN KOD */
+    position: sticky; /* Elementi yapışkan yapar */
+    top: 0; /* Sayfanın en üstüne yapışmasını sağlar */
+    z-index: 10; /* Diğer içeriklerin üzerinde kalmasını sağlar */
+    /* ************************************** */
 }
 
 .data-table tbody tr:nth-child(even) {
