@@ -13,7 +13,27 @@
     <!-- Özel CSS dosyamız -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Google Site Verification (Mevcut olanı koruduk) -->
     <meta name="google-site-verification" content="Wzloothhzi6BstcOabjpORR_KEpBib-ugqvY5-fbTcA" />
+
+    <!-- FAVICON (Tarayıcı sekmesindeki ikon - logo2.png olarak ayarlandı) -->
+    <!-- logo2.png dosyanızın bu amaç için uygun (genellikle kare ve küçük boyutlu, örneğin 32x32 piksel) olduğundan emin olun. -->
+    <link rel="icon" type="image/png" href="logo2.png"> 
+    
+    <!-- SCHEMA.ORG MARKUP (Google'a sitenizin ve logosunun bilgilerini bildirmek için) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Softaoğulları Camii İlim Sohbetleri",
+      "url": "https://softaogullaricami.netlify.app/",  <!-- Sitenizin ana URL'si -->
+      "logo": "https://softaogullaricami.netlify.app/logo2.png", <!-- logo2.png'nin tam URL'si -->
+      "sameAs": [
+        "https://www.instagram.com/softaogullaricami",
+        "https://www.facebook.com/profile.php?id=61579647570758"
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -25,15 +45,14 @@
                 <img src="logo2.png" alt="İkinci Logo" class="logo secondary-logo">
             </div>
             <div class="header-text-container">
-                <h1 class="header-title">Softaoğulları Cami</h1>
-                <h1 class="header-title">Sohbet Arşivi</h1>
+                <h1 class="header-site-name">Softaoğulları Camii</h1> <!-- Sitenin adı -->
+                <h2 class="header-page-title">Sohbet Arşivi</h2> <!-- Sayfanın içeriğinin başlığı -->
                 <p class="header-description">Geçmişte yapılan tüm ilim sohbetlerinin listesine aşağıdan ulaşabilirsiniz.</p>
             </div>
         </div>
     </header>
 
     <main class="container">
-        <!-- Tablonun etrafındaki "çerçeve" (card) kaldırıldı. -->
         <div class="table-container-wrapper">
             <table class="data-table">
                 <thead>
@@ -50,7 +69,6 @@
         </div>
     </main>
 
-    <!-- Ana Uygulama Mantığını Yükle -->
     <script src="main.js"></script>
 
 </body>
