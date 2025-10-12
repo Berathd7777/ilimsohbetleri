@@ -16,39 +16,51 @@ body {
 
 /* Header Stilleri */
 .main-header {
-    background-color: #4A148C; /* Koyu mor */
-    color: #ffffff;
-    padding: 20px 0;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Logonun arkası beyaz */
+    padding: 15px 0; /* Üst ve alt boşluk ekledik */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .header-content {
-    max-width: 960px;
+    max-width: 1000px; /* Genişliği biraz artırdık */
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: center; /* Ortalamak için */
-    align-items: center;
+    align-items: center; /* Öğeleri dikeyde ortalar */
+    justify-content: flex-start; /* Öğeleri sola yaslar */
+    gap: 25px; /* Logo ve metin arasında boşluk */
 }
 
 .logo {
-    max-height: 80px; /* Logonuzun yüksekliğini ayarlayın */
+    height: 90px; /* Logoyu daha da büyüttük, şeride sığacak yükseklik */
     width: auto;
-    display: block; /* Gereksiz boşlukları önlemek için */
+    display: block;
+    flex-shrink: 0; /* Logo küçülmesin */
 }
 
-/* .site-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.2em;
-    font-weight: 700;
-    margin-left: 15px;
-} */
+.header-text-container {
+    flex-grow: 1; /* Metin konteynerının kalan alanı doldurmasını sağlar */
+    min-width: 0; /* İçerik taşmasını önler */
+}
 
+.header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1em; /* Başlık boyutu */
+    font-weight: 700;
+    color: #4A148C; /* Koyu mor */
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.header-description {
+    font-size: 1.05em;
+    color: #555;
+    line-height: 1.5;
+}
 
 /* Konteyner ve Kart Stilleri */
 .container {
-    max-width: 960px;
+    max-width: 1000px; /* Konteyner genişliği header ile uyumlu */
     margin: 30px auto;
     padding: 0 20px;
 }
@@ -58,23 +70,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     padding: 30px;
-    margin-bottom: 30px;
-}
-
-.card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2em;
-    font-weight: 700;
-    color: #4A148C; /* Koyu mor */
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.card-description {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 25px;
-    text-align: center;
 }
 
 /* Tablo Stilleri */
@@ -85,13 +80,13 @@ body {
 .data-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
 .data-table th, .data-table td {
     padding: 12px 15px;
     text-align: left;
     border-bottom: 1px solid #eee;
+    white-space: nowrap; /* Satırların alt satıra geçmesini engeller */
 }
 
 .data-table th {
@@ -119,33 +114,30 @@ body {
 /* Mobil Uyum (Responsive) */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column;
+        flex-direction: column; /* Mobil görünümde logo ve metin alt alta */
+        text-align: center;
+        gap: 15px;
     }
 
     .logo {
-        max-height: 60px;
-        margin-bottom: 10px;
+        height: 70px; /* Mobil için logo yüksekliği */
     }
 
-    /* .site-title {
+    .header-title {
         font-size: 1.8em;
-        margin-left: 0;
-    } */
+    }
+
+    .header-description {
+        font-size: 0.95em;
+    }
 
     .card {
         padding: 20px;
     }
 
-    .card-title {
-        font-size: 1.8em;
-    }
-
-    .card-description {
-        font-size: 1em;
-    }
-
     .data-table th, .data-table td {
         padding: 10px;
+        font-size: 0.9em;
     }
 }
 
@@ -159,7 +151,11 @@ body {
         padding: 15px;
     }
 
-    .card-title {
-        font-size: 1.5em;
+    .header-title {
+        font-size: 1.6em;
+    }
+
+    .header-description {
+        font-size: 0.9em;
     }
 }
