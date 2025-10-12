@@ -41,17 +41,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     tdTarih.className = 'mdl-data-table__cell--non-numeric';
                     tdTarih.textContent = tarih;
                     tr.appendChild(tdTarih);
-                    
-                    const tdKonusmaci = document.createElement('td');
-                    tdKonusmaci.className = 'mdl-data-table__cell--non-numeric';
-                    tdKonusmaci.textContent = konusmaci;
-                    tr.appendChild(tdKonusmaci);
-                    
+
                     const tdKonu = document.createElement('td');
                     tdKonu.className = 'mdl-data-table__cell--non-numeric';
                     tdKonu.textContent = konu;
                     tr.appendChild(tdKonu);
                     
+                    const tdKonusmaci = document.createElement('td');
+                    tdKonusmaci.className = 'mdl-data-table__cell--non-numeric';
+                    tdKonusmaci.textContent = konusmaci;
+                    tr.appendChild(tdKonusmaci);
+
                     tbody.appendChild(tr);
                 }
             });
