@@ -16,61 +16,61 @@ body {
 
 /* Header Stilleri */
 .main-header {
-    background-color: #ffffff; /* Logonun arkası beyaz ve tüm başlık şeridi beyaz */
-    padding: 15px 0; /* Üst ve alt boşluk */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Hafif gölge ile derinlik */
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .header-content {
-    max-width: 1000px; /* İçeriğin maksimum genişliği */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    align-items: center; /* Öğeleri dikeyde ortalar */
-    justify-content: flex-start; /* Öğeleri sola yaslar */
-    gap: 25px; /* Logo grubu ile metin alanı arasındaki boşluk */
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
 }
 
 .logos-wrapper {
     display: flex;
     align-items: center;
-    flex-shrink: 0; /* Logoların küçülmesini engeller */
-    gap: 15px; /* Logolar ve ayırıcı arasındaki boşluk */
+    flex-shrink: 0;
+    gap: 15px;
 }
 
 .logo {
-    height: 90px; /* Logonun yüksekliği (şeride sığacak şekilde ayarlandı) */
+    height: 90px;
     width: auto;
     display: block;
 }
 
 .logo-separator {
-    width: 2px; /* Dikey çizginin kalınlığı */
-    height: 60px; /* Dikey çizginin yüksekliği */
-    background-color: #ddd; /* Çizginin rengi */
-    flex-shrink: 0; /* Ayırıcının küçülmesini engeller */
+    width: 2px;
+    height: 60px;
+    background-color: #ddd;
+    flex-shrink: 0;
 }
 
 .header-text-container {
-    flex-grow: 1; /* Metin konteynerının kalan alanı doldurmasını sağlar */
-    min-width: 0; /* İçerik taşmasını önler */
+    flex-grow: 1;
+    min-width: 0;
 }
 
-.header-site-name { /* Yeni eklenen site adı başlığı */
+.header-site-name {
     font-family: 'Playfair Display', serif;
     font-size: 2.1em;
     font-weight: 700;
-    color: #4A148C; /* Koyu mor */
+    color: #4A148C;
     margin-bottom: 5px;
     line-height: 1.2;
 }
 
-.header-page-title { /* Yeni eklenen sayfa başlığı */
-    font-family: 'Playfair Display', serif; /* Aynı fontu kullanabiliriz */
-    font-size: 1.6em; /* H1'den daha küçük */
-    font-weight: 600; /* Biraz daha hafif */
-    color: #6A1B9A; /* Hafif daha açık mor */
-    margin-bottom: 5px; /* Açıklamadan önce biraz boşluk */
+.header-page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #6A1B9A;
+    margin-bottom: 5px;
     line-height: 1.2;
 }
 
@@ -82,54 +82,78 @@ body {
 
 /* Konteyner ve Tablo Stilleri */
 .container {
-    max-width: 1000px; /* Konteyner genişliği header ile uyumlu */
+    max-width: 1000px;
     margin: 30px auto;
     padding: 0 20px;
 }
 
-.table-container-wrapper {
-    background-color: #ffffff; /* Tablonun arka planı beyaz */
-    border-radius: 8px; /* Köşeleri hafif yuvarlak */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Çok hafif bir gölge, çerçeve değil */
-    padding: 20px 0; /* İç boşluk */
-    overflow-x: auto; /* Küçük ekranlarda tablonun kaydırılmasını sağlar */
-    /* Not: Yatay kaydırma çubuğu hâlâ bu div'de oluşacak. */
+/* YENİ ÜST KAYDIRMA ÇUBUĞU STİLLERİ */
+.top-scrollbar-mirror {
+    overflow-x: auto; /* Yatay kaydırma çubuğunu göster */
+    overflow-y: hidden; /* Dikey kaydırmayı gizle */
+    height: 15px; /* Kaydırma çubuğunun yüksekliği */
+    margin-bottom: 5px; /* Tablo ile arasında boşluk */
+    /* Opsiyonel: Eğer bu kaydırma çubuğu da sticky olsun isterseniz: */
+    /* position: sticky; */
+    /* top: 0; */
+    /* z-index: 11; */
 }
+
+.top-scrollbar-mirror-content {
+    /* Bu div'in genişliği JS ile ayarlanacak */
+    height: 1px; /* İçeriğin yüksekliği olmaması için küçük bir değer */
+}
+
+
+.table-container-wrapper {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 0;
+    overflow-x: auto; /* Tablonun kendi yatay kaydırmasını koruruz */
+    /* Gerekirse, alttaki kaydırma çubuğunu gizlemek için deneysel kodlar: */
+    /* Not: Tarayıcılar arası tutarlılığı garanti etmez. */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Webkit tabanlı tarayıcılar (Chrome, Safari) için alttaki kaydırma çubuğunu gizle */
+.table-container-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
 
 .data-table {
     width: 100%;
-    border-collapse: collapse; /* Tablonun dış çerçevesi yok */
+    border-collapse: collapse;
 }
 
 .data-table th, .data-table td {
-    padding: 12px 20px; /* Hücre iç boşlukları */
+    padding: 12px 20px;
     text-align: left;
-    border-bottom: 1px solid #eee; /* Sadece alt çizgi ile satırları ayırırız */
-    white-space: nowrap; /* Metinlerin alt satıra geçmesini engeller */
+    border-bottom: 1px solid #eee;
+    white-space: nowrap;
 }
 
 .data-table th {
-    background-color: #EDE7F6; /* Açık mor başlık arka planı */
-    color: #4A148C; /* Koyu mor başlık metni */
+    background-color: #EDE7F6;
+    color: #4A148C;
     font-weight: 700;
     text-transform: uppercase;
     font-size: 0.9em;
     letter-spacing: 0.5px;
     
-    /* ************************************** */
-    /* SABİT (STICKY) BAŞLIK İÇİN EKLENEN KOD */
-    position: sticky; /* Elementi yapışkan yapar */
-    top: 0; /* Sayfanın en üstüne yapışmasını sağlar */
-    z-index: 10; /* Diğer içeriklerin üzerinde kalmasını sağlar */
-    /* ************************************** */
+    position: sticky;
+    top: 15px; /* Üstteki kaydırma çubuğunun altına yapışmasını sağlar (kaydırma çubuğu yüksekliği kadar) */
+    z-index: 10;
 }
 
 .data-table tbody tr:nth-child(even) {
-    background-color: #fdfdfd; /* Çift sıralar için hafif farklı arka plan */
+    background-color: #fdfdfd;
 }
 
 .data-table tbody tr:hover {
-    background-color: #F3E5F5; /* Üzerine gelindiğinde açık mor */
+    background-color: #F3E5F5;
     cursor: pointer;
 }
 
@@ -140,22 +164,22 @@ body {
 /* Mobil Uyum (Responsive) */
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column; /* Mobil görünümde logo ve metin alt alta */
+        flex-direction: column;
         text-align: center;
         gap: 15px;
     }
 
     .logos-wrapper {
-        justify-content: center; /* Logoları ortalar */
+        justify-content: center;
         gap: 10px;
     }
 
     .logo {
-        height: 60px; /* Mobil için logo yüksekliği */
+        height: 60px;
     }
 
     .logo-separator {
-        height: 40px; /* Mobil için ayırıcı yüksekliği */
+        height: 40px;
     }
 
     .header-site-name {
@@ -171,12 +195,17 @@ body {
     }
 
     .table-container-wrapper {
-        padding: 15px 0; /* Mobil için iç boşluk ayarı */
+        padding: 15px 0;
     }
 
     .data-table th, .data-table td {
         padding: 10px 15px;
         font-size: 0.9em;
+    }
+    
+    /* Mobil görünümde üst kaydırma çubuğunu gizleyebiliriz, çünkü mobil cihazlarda genellikle kaydırma doğal hissedilir */
+    .top-scrollbar-mirror {
+        display: none;
     }
 }
 
