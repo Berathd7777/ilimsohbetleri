@@ -56,12 +56,21 @@ body {
     min-width: 0; /* İçerik taşmasını önler */
 }
 
-.header-title {
+.header-site-name { /* Yeni eklenen site adı başlığı */
     font-family: 'Playfair Display', serif;
     font-size: 2.1em;
     font-weight: 700;
     color: #4A148C; /* Koyu mor */
     margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.header-page-title { /* Yeni eklenen sayfa başlığı */
+    font-family: 'Playfair Display', serif; /* Aynı fontu kullanabiliriz */
+    font-size: 1.6em; /* H1'den daha küçük */
+    font-weight: 600; /* Biraz daha hafif */
+    color: #6A1B9A; /* Hafif daha açık mor */
+    margin-bottom: 5px; /* Açıklamadan önce biraz boşluk */
     line-height: 1.2;
 }
 
@@ -142,8 +151,12 @@ body {
         height: 40px; /* Mobil için ayırıcı yüksekliği */
     }
 
-    .header-title {
+    .header-site-name {
         font-size: 1.8em;
+    }
+
+    .header-page-title {
+        font-size: 1.4em;
     }
 
     .header-description {
@@ -166,8 +179,12 @@ body {
         padding: 0 15px;
     }
 
-    .header-title {
+    .header-site-name {
         font-size: 1.6em;
+    }
+    
+    .header-page-title {
+        font-size: 1.2em;
     }
 
     .header-description {
