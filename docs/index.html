@@ -17,7 +17,11 @@
 
     <header class="main-header">
         <div class="header-content">
-            <img src="logo.png" alt="İlim Sohbetleri Logosu" class="logo">
+            <div class="logos-wrapper">
+                <img src="logo.png" alt="İlim Sohbetleri Logosu" class="logo main-logo">
+                <span class="logo-separator"></span>
+                <img src="logo2.png" alt="İkinci Logo" class="logo secondary-logo">
+            </div>
             <div class="header-text-container">
                 <h1 class="header-title">Sohbet Arşivi</h1>
                 <p class="header-description">Geçmişte yapılan tüm ilim sohbetlerinin listesine aşağıdan ulaşabilirsiniz.</p>
@@ -26,22 +30,21 @@
     </header>
 
     <main class="container">
-        <section class="card">
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Tarih</th>
-                            <th>Konuşmacı</th>
-                            <th>Konu</th>
-                        </tr>
-                    </thead>
-                    <tbody id="sohbet-listesi">
-                        <!-- Sohbet listesi main.js tarafından internetten çekilip buraya eklenecek -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
+        <!-- Tablonun etrafındaki "çerçeve" (card) kaldırıldı. -->
+        <div class="table-container-wrapper">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Tarih</th>
+                        <th>Konuşmacı</th>
+                        <th>Konu</th>
+                    </tr>
+                </thead>
+                <tbody id="sohbet-listesi">
+                    <!-- Sohbet listesi main.js tarafından internetten çekilip buraya eklenecek -->
+                </tbody>
+            </table>
+        </div>
     </main>
 
     <!-- Ana Uygulama Mantığını Yükle -->
