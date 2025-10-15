@@ -32,4 +32,5 @@ const sohbetVeriMetni = `
 23.09.2025 Salı,Erkan Uslu,Hz. Musa
 30.09.2025 Salı,Erkan Uslu,Hz. Musa
 07.10.2025 Salı,Erkan Uslu,Hz. Musa
+14.10.2025 Salı,Erkan Uslu,Hz. Musa ve Hz. Harun
 `;
